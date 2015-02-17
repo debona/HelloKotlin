@@ -11,16 +11,34 @@ import android.view.View
 import android.view.ViewGroup
 import android.os.Build
 import android.widget.TextView
+import android.widget.LinearLayout
+import android.widget.Toast
 
 
 public class MainActivity:ActionBarActivity() {
+
+    var drawer_menu: LinearLayout? = null
+
+    fun view<T>(id: Int): T {
+        val view: View? = findViewById(id)
+        if (view == null)
+            throw IllegalArgumentException("Given ID could not be found in current layout!")
+        return view as T
+    }
 
     override fun onCreate(savedInstanceState:Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null)
         {
-            getSupportFragmentManager().beginTransaction().add(R.id.container, PlaceholderFragment()).commit()
+            getSupportFragmentManager().beginTransaction().add(R.id.content_frame, PlaceholderFragment()).commit()
+
+            drawer_menu = view(R.id.drawer_menu)
+            drawer_menu?.setOnClickListener(object: View.OnClickListener {
+                override fun onClick(v: View) {
+                    Toast.makeText(this@MainActivity, "Drawer menu clicked!", Toast.LENGTH_SHORT).show()
+                }
+            })
         }
     }
 
