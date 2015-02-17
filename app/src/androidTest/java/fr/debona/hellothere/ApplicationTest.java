@@ -1,4 +1,4 @@
-package fr.debona.hellokotlin;
+package fr.debona.hellothere;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

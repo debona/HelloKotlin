@@ -1,4 +1,4 @@
-package fr.debona.hellokotlin
+package fr.debona.hellothere
 
 import android.support.v7.app.ActionBarActivity
 import android.support.v7.app.ActionBar
