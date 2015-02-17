@@ -13,11 +13,9 @@ import android.os.Build
 import android.widget.TextView
 import android.widget.LinearLayout
 import android.widget.Toast
-
+import android.support.v4.app.FragmentManager
 
 public class MainActivity:ActionBarActivity() {
-
-    var drawer_menu: LinearLayout? = null
 
     fun view<T>(id: Int): T {
         val view: View? = findViewById(id)
@@ -31,14 +29,10 @@ public class MainActivity:ActionBarActivity() {
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null)
         {
-            getSupportFragmentManager().beginTransaction().add(R.id.content_frame, PlaceholderFragment()).commit()
-
-            drawer_menu = view(R.id.drawer_menu)
-            drawer_menu?.setOnClickListener(object: View.OnClickListener {
-                override fun onClick(v: View) {
-                    Toast.makeText(this@MainActivity, "Drawer menu clicked!", Toast.LENGTH_SHORT).show()
-                }
-            })
+            val fragmentManager = getSupportFragmentManager().beginTransaction()
+            fragmentManager.add(R.id.drawer_menu, DrawerFragment())
+            fragmentManager.add(R.id.content_frame, PlaceholderFragment())
+            fragmentManager.commit()
         }
     }
 
