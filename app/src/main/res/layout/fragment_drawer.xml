@@ -22,43 +22,16 @@
     <EditText
         android:id="@+id/username"
         android:hint="Username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="#146D97"
-        android:textColor="#FFF"
-        android:textColorHint="#BBB"
-        android:lines="1"
-        android:maxLines="1"
-        android:ellipsize="end" />
+        style="@style/AppTheme.EditText" />
 
     <EditText
         android:id="@+id/fullname"
         android:hint="Fullname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="#146D97"
-        android:textColor="#FFF"
-        android:textColorHint="#BBB"
-        android:lines="1"
-        android:maxLines="1"
-        android:ellipsize="end" />
+        style="@style/AppTheme.EditText" />
 
     <EditText
         android:id="@+id/color"
         android:hint="#00FFFF"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="#146D97"
-        android:textColor="#FFF"
-        android:textColorHint="#BBB"
-        android:lines="1"
-        android:maxLines="1"
-        android:ellipsize="end" />
+        style="@style/AppTheme.EditText" />
 
 </LinearLayout>
