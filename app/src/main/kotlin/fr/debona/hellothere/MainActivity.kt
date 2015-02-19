@@ -18,7 +18,7 @@ import android.support.v4.app.FragmentManager
 public class MainActivity:ActionBarActivity() {
 
     fun view<T>(id: Int): T {
-        val view: View? = findViewById(id)
+        val view: View? =  findViewById(id)
         if (view == null)
             throw IllegalArgumentException("Given ID could not be found in current layout!")
         return view as T
@@ -31,7 +31,7 @@ public class MainActivity:ActionBarActivity() {
         {
             val fragmentManager = getSupportFragmentManager().beginTransaction()
             fragmentManager.add(R.id.drawer_menu, DrawerFragment())
-            fragmentManager.add(R.id.content_frame, PlaceholderFragment())
+            fragmentManager.add(R.id.content_frame, DiscoverFragment())
             fragmentManager.commit()
         }
     }
@@ -55,18 +55,5 @@ public class MainActivity:ActionBarActivity() {
         }
 
         return super.onOptionsItemSelected(item)
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public class PlaceholderFragment:Fragment() {
-
-        override fun onCreateView(inflater:LayoutInflater, container:ViewGroup?, savedInstanceState:Bundle?):View {
-            val rootView = inflater.inflate(R.layout.fragment_main, container, false)
-            val text_view_hello = rootView.findViewById(R.id.text_view_hello) as TextView
-            text_view_hello.setText("text_view_hello")
-            return rootView
-        }
     }
 }
