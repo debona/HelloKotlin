@@ -1,21 +1,21 @@
-package fr.debona.hellothere
+package fr.debona.hellothere.fragments.discover
 
 import android.support.v4.app.Fragment
+import android.view.View
+import android.widget.ListView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
-import android.widget.ListView
-import android.widget.ArrayAdapter
+import fr.debona.hellothere.R
 import java.util.ArrayList
+import android.widget.ArrayAdapter
 
-public class DiscoverFragment:Fragment() {
+public class DiscoverFragment: Fragment() {
 
     var rootView: View? = null
     var listView: ListView? = null
 
-    override fun onCreateView(inflater:LayoutInflater, container:ViewGroup?, savedInstanceState:Bundle?):View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         rootView = inflater.inflate(R.layout.fragment_discover, container, false)
 
         val items = ArrayList<String>()
