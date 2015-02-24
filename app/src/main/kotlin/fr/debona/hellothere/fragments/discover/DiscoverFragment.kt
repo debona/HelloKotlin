@@ -9,6 +9,10 @@ import android.os.Bundle
 import fr.debona.hellothere.R
 import java.util.ArrayList
 import android.widget.ArrayAdapter
+import fr.debona.hellothere.extensions.ListAdapter
+import fr.debona.hellothere.extensions.Cell
+import android.content.Context
+import fr.debona.hellothere.models.Place
 
 public class DiscoverFragment: Fragment() {
 
@@ -18,10 +22,13 @@ public class DiscoverFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         rootView = inflater.inflate(R.layout.fragment_discover, container, false)
 
-        val items = ArrayList<String>()
-        for (i in 0..10)
-            items.add("Something " + i)
-        val itemsAdapter = ArrayAdapter(getActivity(), R.layout.cell_place, items);
+        val places = Place.all()
+        val itemsAdapter = object: ListAdapter<Place>(getActivity()) {
+            override public fun cellFactory(context: Context): Cell<Place> {
+                return PlaceCell(context)
+            }
+        }
+        itemsAdapter.items = places
 
         listView = view(R.id.listView)
         listView?.setAdapter(itemsAdapter)
